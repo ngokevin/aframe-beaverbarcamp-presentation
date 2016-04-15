@@ -4,15 +4,14 @@
     <meta charset="utf-8">
     <title>Beaver Barcamp Example Scene</title>
     <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
-    <script src="aframe-text-component.min.js"></script>
+    <script src="components/aframe-text-component.min.js"></script>
+    <script src="components/json-model.js"></script>
   </head>
   <body>
     <a-scene>
       <a-sky src="sky.jpg"></a-sky>
 
       <a-collada-model src="kelley.dae"></a-collada-model>
-
-      <a-collada-model src="model.dae" position="0 0 100"></a-collada-model>
 
       <a-plane src="road.jpg" height="300" position="0 -1 0" repeat="200 200"
                rotation="-90 0 0" width="300" metalness="0" roughness="1"></a-plane>
@@ -21,6 +20,9 @@
                 position="-20 0 50" rotation="0 90 0" scale="2 2 2"></a-entity>
 
       <a-light type="point" position="-10 1.8 40"></a-light>
+
+      <a-entity json-model="url(woolly-mammoth-skeleton.json)" position="-30 6 40"
+                scale=".004 .004 .004"></a-entity>
 
       <a-entity position="-10 1.8 40" rotation="0 90 0">
         <a-camera></a-camera>
