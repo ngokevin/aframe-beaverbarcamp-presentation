@@ -3,32 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Beaver Barcamp Example Scene</title>
-    <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
+    <script src="aframe-v0.2.0.min.js"></script>
     <script src="components/aframe-text-component.min.js"></script>
     <script src="components/json-model.js"></script>
   </head>
   <body>
     <a-scene>
+      <!-- Background. -->
       <a-sky src="sky.jpg"></a-sky>
 
+      <!-- Building. -->
       <a-collada-model src="kelley.dae"></a-collada-model>
 
+      <!-- Ground. -->
       <a-plane src="road.jpg" height="300" position="0 -1 0" repeat="200 200"
                rotation="-90 0 0" width="300" metalness="0" roughness="1"></a-plane>
 
+      <!-- Word. -->
       <a-entity text="text: Oregon State University" material="color: #C44500"
                 position="-20 0 50" rotation="0 90 0" scale="2 2 2"></a-entity>
 
-      <a-light type="point" position="-10 1.8 40"></a-light>
+      <!-- Lights. -->
+      <a-light type="ambient" color="#222"></a-light>
+      <a-light type="point" position="-10 1.8 40">
+        <a-animation attribute="intensity" direction="alternate" dur="3000"
+                     from="1" to="0.8" repeat="indefinite"></a-animation>
+      </a-light>
 
+      <!-- Skeleton. -->
       <a-entity json-model="url(woolly-mammoth-skeleton.json)" position="-30 6 40"
                 scale=".004 .004 .004"></a-entity>
 
-      <a-entity position="0 2 50" sound="autoplay: true; src: fight.mp3; volume: 1"></a-entity>
+      <!-- Audio. -->
+      <a-entity position="0 2 50" sound="autoplay: true; src: fight.mp3; volume: 20"></a-entity>
 
-      <a-video position="-40 10 80" src="osu.mp4" height="20" width="20"
-               rotation="0 135 0"></a-video>
+      <!-- Video. -->
+      <a-video position="-40 10 80" src="osu.mp4" height="20" width="30"
+               rotation="0 135 0" shader="standard"></a-video>
 
+      <!-- Camera. -->
       <a-entity position="-10 1.8 40" rotation="0 90 0">
         <a-camera></a-camera>
       </a-entity>
